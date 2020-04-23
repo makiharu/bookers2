@@ -11,13 +11,14 @@
 </div>
 
 <!-- new book-->
-<%= form_for(@book) do |f| %>
 <h1>New Book</h1>
+<%= form_for(@book) do |f| %>
+
 <p>Title</p>
 <%= f.text_area :title %>
 
 <p>Opinion</p>
-<%= f.text_field :opinion %>
+<%= f.text_field :body %>
 
 <%= f.submit 'Create Book', class:"btn btn-primary" %>
 

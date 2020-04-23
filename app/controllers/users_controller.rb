@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 	def create
 	  @book = Book.new(book_params)
 	  if @book.save
-	  	redirect_to root_path
+	  	redirect_to root_path   #修正
 	  else
 	  	render 'books/index'
 	  end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
 	private
 	def book_params
-		params.require(:book).permit(:title, :opinion, :user_id)
+		params.require(:book).permit(:title, :body, :user_id)
 	end
 
 end

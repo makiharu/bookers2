@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users' => "users#index"
 
   devise_for :users
+
   resources :books
   resources :users, only: [:new, :create, :index, :show]
 
