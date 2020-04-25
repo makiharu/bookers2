@@ -1,5 +1,29 @@
 <h1>showページ</h1>
 
+<!--user info-->
+<!-- @userを定義してないからエラーになる-->
+<h1>User info</h1>
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
+  <%= image_tag('no_image.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+
+</div>
+
+
+<!-- new book-->
+<h1>New Book</h1>
+<%= form_for(@book) do |f| %>
+
+<p>Title</p>
+<%= f.text_area :title %>
+
+<p>Opinion</p>
+<%= f.text_field :body %>
+
+<%= f.submit 'Create Book', class:"btn btn-primary" %>
+
+
+<% end %>
 
 
 <h1>Book detail</h1>
@@ -11,15 +35,24 @@
 			<th>Opinion</th>
 		</tr>
 	</thead>
-
 	<tbody>
-	<% @books.each do |book| %>
+		<!--同じ内容が繰り返されるので、修正-->
+	  <% @books.each do |book| %>
 		<tr>
-			<td></td>　　　<!--修正-->
-			<th><%= @book.title %></th>
+			<td>image</td>　　　<!--修正-->
+			<td><%= @book.title %></td>
 			<td><%= @book.body %></td>
+			<td>edit</td>
+			<td>
+				<!--ログインしているユーザーだったら削除ができるようにする-->
+				<% if @book.user_id == current_user.id %>
+				<%= link_to "削除", book_path(book), method: :delete %>
+				<% end %>
+			</td>
 		</tr>
+	  <% end %>
 	</tbody>
 </table>
 
-<% end %>
+
+

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	def new
-	end
+	# deviseのメソッドで「ログインしていないユーザーをログイン画面に送る」メソッド
+	before_action :authenticate_user!
 
 	def create
 	  @book = Book.new(book_params)
@@ -14,17 +14,26 @@ class UsersController < ApplicationController
 
 	def index
 	  @users = User.all
-	  @user = User.new
+	  @user = current_user
 	  @book = Book.new
+
 	end
 
 	def show
+	  @users = User.all
+	  @user = User.find(params[:id])
+	  @book = Book.new
+	end
+
+	def edit
 	  @user = User.find(params[:id])
 	end
 
 	private
 	def book_params
-		params.require(:book).permit(:title, :body, :user_id)
+		params.require(:book).permit(:title, :body)
 	end
+
+
 
 end

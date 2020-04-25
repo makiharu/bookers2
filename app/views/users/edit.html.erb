@@ -1,0 +1,16 @@
+<!--user info-->
+
+<h1>User info</h1>
+
+<%= form_for(@user) do |f| %>
+<p>Name</p>
+<%= f.text_field :name %>
+
+<p>Image</p>
+<p><%= f.attachment_field :profile_image %>選択されていません</p>
+
+<p>Introduction</p>
+<%= f.text_area :introduction %>
+
+<p><%= f.submit 'Update User' %></p>
+<% end %>

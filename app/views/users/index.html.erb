@@ -1,14 +1,32 @@
-<p>index</p>
-
 <!--user info-->
-<h1>User info</h1>
 
-<div class="">
+<div class="col-xs-3">
+<h2>User info</h2>
+  <table class="table">
+  	  	<!--alt="No image-->
+  	<tr>
+  		<%= image_tag('no_image.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th></th>
+    </tr>
+    <tr>
+      	<!--user編集ページへのリンク設定,ボタンをよこに伸ばす-->
+       <th>
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+             <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+             <%= link_to "", root_path %>  <!--editへのページ遷移-->
+        </button>
+       </th>
+    </tr>
+ </table>
 
 
-
-
-</div>
 
 <!-- new book-->
 <h1>New Book</h1>
@@ -26,4 +44,24 @@
 <% end %>
 
 
+
+
 <!-- user一覧-->
+<h1>Users</h1>
+  <table class="table">
+	<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @users.each do |user| %>
+		<tr>
+			<td>image</td>
+			<td><%= user.name %></td>
+			<td>Show</td><!--プロフィール詳細画面へ-->
+		</tr>
+	  <% end %>
+	</tbody>
+</table>

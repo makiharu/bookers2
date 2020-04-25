@@ -32,6 +32,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+
+      #ここに直接記述して、rails db:migrateしたら、DBに読み込まれかった
+      #introduction：自己紹介文
+      #profile_image_id：「refile」による画像保存用
       t.string :name
       t.timestamps null: false
     end
