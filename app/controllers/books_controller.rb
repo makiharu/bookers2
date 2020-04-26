@@ -4,6 +4,7 @@ before_action :authenticate_user!, only: [:index, :show]
 	def index
 	  @books = Book.all
 	  @book = Book.new
+	  @user = current_user    #ここ理解不十分
 	end
 
 	def create
@@ -11,6 +12,7 @@ before_action :authenticate_user!, only: [:index, :show]
 	  @book = Book.new(book_params)
 	  @book.user_id = current_user.id
 	  if @book.save
+	  	flash[:notice] = "You have creatad book successfully."
 	    redirect_to book_path(@book.id)
 	  else
 	  	render 'index'
@@ -18,11 +20,11 @@ before_action :authenticate_user!, only: [:index, :show]
 	end
 
 	def show
-	  @book = Book.find(params[:id])
+	  @onebook = Book.find(params[:id])  #@bookと違う変数名を用意
 	  @books = Book.all
-	  @book= Book.new
+	  @book = Book.new
 	  #user定義,本に紐づいたユーザー
-	  @user = @book.user_id
+	  @user = User.find(@onebook.user_id)
 	end
 
 	def edit
