@@ -48,19 +48,17 @@
 						<!--ログインしているユーザーだったら削除ができるようにする-->
 				</tr>
 				<% end %>
-
-
-
 			</tbody>
 		</table>
 	</div>
+
 
 <!-- new book-->
 <div class="row">
 	<div class="col-xs-3">
 		<h1>New Book</h1>
 		<%= form_for(@book) do |f| %>
-
+<!--エラーメッセ--users/edit参照-->
 		<p>Title</p>
 		<%= f.text_area :title %>
 

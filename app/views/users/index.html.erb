@@ -47,7 +47,8 @@
      <tr>
        <td>image</td>
        <td><%= user.name %></td>
-      <td><%= link_to "Show", root_path %></td> <!--投稿をしたユーザーのページ、設定はできない-->
+      <td><%= link_to "Show", user_path(user.id) %></td>
+      <!--投稿をしたユーザーに紐づく-->
      </tr>
      <% end %>
    </tbody>
@@ -64,7 +65,7 @@
 
    <h1>New Book</h1>
    <%= form_for(@book) do |f| %>
-
+<!--エラーメッセ--users/edit参照-->
    <p>Title</p>
    <%= f.text_area :title %>
 

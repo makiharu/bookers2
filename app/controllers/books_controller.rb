@@ -4,7 +4,7 @@ before_action :authenticate_user!, only: [:index, :show]
 	def index
 	  @books = Book.all
 	  @book = Book.new
-	  @user = current_user    #ここ理解不十分
+	  @user = current_user    #ビューでそのまま使える
 	end
 
 	def create

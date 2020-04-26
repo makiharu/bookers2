@@ -16,14 +16,14 @@ class UsersController < ApplicationController
 	  @users = User.all
 	  @user = current_user #確認
 	  @book = Book.new
+
 	end
 
 	def show
-	  @users = User.all
+	  #@users = User.all
 	  @user = User.find(params[:id])
 	  @book = Book.new
 	  @user = current_user
-	  @onebook = Book.find(params[:id])
 	  #flash[:notice] ="Welcome! You have signed up successfully."
 	end
 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
 	private
 	def book_params
-		params.require(:book).permit(:title, :body)
+		params.require(:book).permit(:title, :body, :user_id)   #追加した
 	end
 
 	def user_params
