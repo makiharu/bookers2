@@ -1,0 +1,30 @@
+<!--userinfo-->
+
+<!--画像を投稿保存できるようにする-->
+
+    <div class="col-xs-3">
+      <h2>User info</h2>
+      <table class="table">
+        <!--alt="No image-->
+        <tr>
+          <%= image_tag('no_image.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+        </tr>
+        <tr>
+          <th>name</th>
+          <th><%= user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= user.introduction %></th>
+        </tr>
+        <tr>
+         <!--user編集ページへのリンク設定,ボタンをよこに伸ばす-->
+         <th>
+          <button type="button" class="btn btn-default" aria-label="Left Align">
+           <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+           <%= link_to "Edit", edit_user_path(user) %>  <!--editへのページ遷移-->
+           </button>
+       	 </th>
+    	</tr>
+   	</table>
+ </div>

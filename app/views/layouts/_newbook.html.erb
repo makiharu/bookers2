@@ -1,0 +1,27 @@
+<div clsss="row">
+  <div class="col-xs-9">
+    <!--新規投稿ページ-->
+    <h1>New book</h1>
+    <%= form_for(book) do |f| %>
+
+    <!--エラーメッセージには@付けないと、エラー発生するもよう-->
+      <% if @user.errors.any? %>
+    <div class="alert">
+    <h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>s
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
+    <p>Title</p>
+    <%= f.text_field :title %>
+    <p>Opinion</p>
+
+    <%= f.text_area :body %>
+    <%= f.submit 'Create Book', class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,81 +1,37 @@
-<!--user info-->
-
-
 <div class="container">
-  <div class="row">
 
-    <div class="col-xs-3">
-      <h2>User info</h2>
-      <table class="table">
-        <!--alt="No image-->
-        <tr>
-          <%= image_tag('no_image.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
-        </tr>
-        <tr>
-          <th>name</th>
-          <th><%= @user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th>
-          <th><%= @user.introduction %></th>
-        </tr>
-        <tr>
-         <!--user編集ページへのリンク設定,ボタンをよこに伸ばす-->
-         <th>
-          <button type="button" class="btn btn-default" aria-label="Left Align">
-           <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-           <%= link_to "Edit", edit_user_path(@user) %>  <!--editへのページ遷移-->
-         </button>
-       </th>
-     </tr>
-   </table>
- </div>
+  <div clsss="row">
+　　<!--user info-->
+  　<%= render 'layouts/userinfo', user: @user %>
 
 
- <div class="col-xs-9">
-   <!-- user一覧-->
-   <h1>Users</h1>
-   <table class="table">
-     <thead>
-      <tr>
-       <th>image</th>
-       <th>name</th>
-     </tr>
-   </thead>
-   <tbody>
-     <% @users.each do |user| %>
-     <tr>
-       <td>image</td>
-       <td><%= user.name %></td>
-      <td><%= link_to "Show", user_path(user.id) %></td>
-      <!--投稿をしたユーザーに紐づく-->
-     </tr>
-     <% end %>
-   </tbody>
- </table>
 
+    <!-- user一覧-->
+　  <div class="col-xs-9">
+  　   <h1>Users</h1>
+   　  <table class="table">
+     　  　<thead>
+      　　  　<tr>
+       　　　  　<th>image</th>
+       　　　　  <th>name</th>
+     　　　  　</tr>
+   　　　  </thead>
+  　　　   <tbody>
+    　　   <% @users.each do |user| %>
+     　　　  　<tr>
+       　　　  　<td>image</td>
+                <td><%= user.name %></td>
+                <td><%= link_to "Show", user_path(user.id) %></td>
+                  <!--投稿をしたユーザーに紐づく-->
+              </tr>
+          <% end %>
+          </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
-
-
-   <!-- new book-->
-<div class="row">
- <div class="col-xs-3">
-
-   <h1>New Book</h1>
-   <%= form_for(@book) do |f| %>
-<!--エラーメッセ--users/edit参照-->
-   <p>Title</p>
-   <%= f.text_area :title %>
-
-   <p>Opinion</p>
-   <%= f.text_field :body %>
-
-   <%= f.submit 'Create Book', class:"btn btn-primary" %> <!--ボタンをしたに並べる-->
-   <% end %>
- </div>
-</div>
+  <!--新規投稿-->
+　<%= render 'layouts/newbook', book: @book %>
 
 
 </div>
