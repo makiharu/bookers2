@@ -1,35 +1,33 @@
-
-
-<div class="container">
+  <div class="container">
 	<h1>User info</h1>
 
 	<%= form_for(@user) do |f| %>
-	<!--エラーメッセ挿入-->
+	<!--エラーメッセ挿入、パーシャル-->
 	<% if @user.errors.any? %>
-	  <div class="alert">
-		<h2><%= pluralize(@user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+	<div class="alert">
+		<h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
 
 		<ul>
-			<% @user.errors.full_messages.each do |message| %>
+			<% user.errors.full_messages.each do |message| %>
 			<li><%= message %></li>s
 			<% end %>
 		</ul>
-	  </div>
+	</div>
 	<% end %>
 
-	<p>Name</p>
-	<%= f.text_field :name %>
+		<p>Name</p>
+		<%= f.text_field :name %>
 
-	<p>Image</p>
-	<p><%= f.attachment_field :profile_image %></p>
+		<p>Image</p>
+		<p><%= f.attachment_field :profile_image %></p>
 
-	<p>Introduction</p>
-	<%= f.text_area :introduction %>
+		<p>Introduction</p>
+		<%= f.text_area :introduction %>
 
-	<p><%= f.submit 'Update User' %></p>
-	<% end %>
+		<p><%= f.submit 'Update User' %></p>
+		<% end %>
 
 </div>
-</div>
+
 
 

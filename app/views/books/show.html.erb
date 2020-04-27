@@ -22,10 +22,12 @@
 						<td>image</td>　　　<!--画像修正-->
 						<td><%= book.title %></td>
 						<td><%= book.body %></td>
-						<td><span class="label label-success">Edit</span></td>
-						<td><span class="label label-danger">Destroy</span></td>
-						<!--ボタンのサイズと文字の色が微妙に違う-->
-					</tr> <!--新規投稿後は、最新の投稿のみ表示される。且つ画像をクリックすると、投稿一覧ページへ飛ぶ--><!--リンク設定-->
+						<td><%= link_to 'Edit', edit_book_path(book), class: "label label-success" %>
+						</td>
+						<td>
+							<%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: '本当に消しますか?'}, class: "label label-danger" %>
+						</td>
+					</tr>
 					<% end %>
 				</tbody>
 			</table>

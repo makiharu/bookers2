@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  if @user.update(user_params)   #ストロングパラメータ
 	  	flash[:notice] = "You have updated user successfully."
-	  	redirect_to user_path(@user) #修正
+	  	redirect_to user_path(user) #修正
 	  else
 	  	render 'edit'
 	  end

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+           <h1>Editing Book</h1>
+
+           <%= form_for(@book) do |f| %>
+           <!--エラーメッセージを挿入user/edit-->
+           <div class="field">
+            <p>Title</p>
+            <%= f.text_field :title, class:"btn-block" %>
+        </div>
+
+        <div class="field">
+           <p>Opinion</p>
+           <%= f.text_area :body, class:"btn-block" %>
+           
+           <div class="action">
+            <button type="button" class="btn btn-primary btn-block">
+                Update Book
+            </button>
+        </div>
+
+        <div class="links" >
+            <%= link_to 'Show', book_path(@book) %>
+            <%= link_to 'Back', books_path %>
+            <% end %>
+        </div>
+
+        <div class="copyright" %>
+            <p>CopyRight Infratop.inc</p>
+        </div>
+
+    </div>
+</div>
+</div>

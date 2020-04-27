@@ -20,11 +20,17 @@
         <tr>
          <!--user編集ページへのリンク設定,ボタンをよこに伸ばす-->
          <th>
+          <%= link_to edit_user_path(user) do%>
           <button type="button" class="btn btn-default" aria-label="Left Align">
            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-           <%= link_to "Edit", edit_user_path(user) %>  <!--editへのページ遷移-->
            </button>
+           <% end %>
        	 </th>
     	</tr>
    	</table>
- </div>
+
+
+
+
+
+
