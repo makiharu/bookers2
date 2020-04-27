@@ -36,16 +36,16 @@ class UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  if @user.update(user_params)   #ストロングパラメータ
 	  	flash[:notice] = "You have updated user successfully."
-	  	redirect_to user_path(user) #修正
+	  	redirect_to user_path(@user) #修正
 	  else
 	  	render 'edit'
 	  end
 	end
 
 	private
-	def book_params
-		params.require(:book).permit(:title, :body, :user_id)   #追加した
-	end
+	#def book_params
+	#	params.require(:book).permit(:title, :body, :user_id)   #追加した
+	#end
 
 	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)
