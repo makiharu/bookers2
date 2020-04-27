@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'  #showページに変更すること
+  root 'homes#top'
   get 'homes/about'
   get 'users' => "users#index"
 
