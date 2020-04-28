@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  @book = Book.new
 	  @user = current_user
-
+	  #ログイン時のみ
 	  #flash[:notice] ="Welcome! You have signed up successfully."
 	end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 	def destroy
 	  @user = User.find(params[:id])
 	  @user.destroy
-	  
+
 	end
 
 

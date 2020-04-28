@@ -1,19 +1,13 @@
 <!--userinfo-->
 
-<!--画像を投稿保存できるようにする-->
 
     <div class="col-xs-3">
       <h2>User info</h2>
       <table class="table">
         <tr>
-
-
-<!--質問箇所、一時避難-ここまで-->
-
-     <%= image_tag('no_image.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
-
-
-<!--ここまでの範囲、あとで貼り付け-->
+          <!--質問箇所、-->
+          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+          <!--ここまでの範囲-->
         </tr>
         <tr>
           <th>name</th>

@@ -40,5 +40,8 @@ before_action :authenticate_user!, only: [:index, :show]
 	  def book_params
 	  	params.require(:book).permit(:title, :body, :user_id)
 	  end
+	  	def user_params
+		params.require(:user).permit(:name, :introduction, :profile_image)
+	end
 
 end
