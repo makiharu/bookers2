@@ -2,15 +2,16 @@ class UsersController < ApplicationController
 	# deviseのメソッドで「ログインしていないユーザーをログイン画面に送る」メソッド
 	before_action :authenticate_user!
 
-	def create
-	  @book = Book.new(book_params)
-	  if @book.save
-	  	flash[:notice] ="You have creatad book successfully."
-	  	redirect_to root_path   #修正
-	  else
-	  	render 'books/index'
-	  end
-	end
+	#def create
+	 # @book = Book.new(book_params)
+	  ##
+	  #	flash[:notice] ="You have creatad book successfully."
+	  #	redirect_to root_path   #修正
+	  #else
+	  #	render 'books/index'
+	  #end
+	#end
+
 
 	def index
 	  @users = User.all

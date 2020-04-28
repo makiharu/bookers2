@@ -1,61 +1,57 @@
-<!--userinfo-->
+  <!--userinfo-->
+
+  <div class="col-xs-3">
+        <h2>User info</h2>
+        <table class="table">
+          <tr>
+            <!--質問箇所、-->
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+            <!--ここまでの範囲-->
+          </tr>
+          <tr>
+            <th>name</th>
+            <th><%= user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= user.introduction %></th>
+          </tr>
+          <tr>
+           <!--user編集ページへのリンク設定,ボタンをよこに伸ばす-->
+           <th>
+            <%= link_to edit_user_path(user) do%>
+            <button type="button" class="btn btn-default" aria-label="Left Align">
+             <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+             </button>
+             <% end %>
+         	 </th>
+      	</tr>
+     	</table>
 
 
-    <div class="col-xs-3">
-      <h2>User info</h2>
-      <table class="table">
-        <tr>
-          <!--質問箇所、-->
-          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-          <!--ここまでの範囲-->
-        </tr>
-        <tr>
-          <th>name</th>
-          <th><%= user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th>
-          <th><%= user.introduction %></th>
-        </tr>
-        <tr>
-         <!--user編集ページへのリンク設定,ボタンをよこに伸ばす-->
-         <th>
-          <%= link_to edit_user_path(user) do%>
-          <button type="button" class="btn btn-default" aria-label="Left Align">
-           <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-           </button>
-           <% end %>
-       	 </th>
-    	</tr>
-   	</table>
 
+      <!--新規投稿ページ-->
+      <h1>New book</h1>
+      <%= form_for(@book) do |f| %>
 
-
-    <!--新規投稿ページ-->
-    <h1>New book</h1>
-    <%= form_for(@book) do |f| %>
-
-    <!--エラーメッセージには@付けないと、エラー発生するもよう-->
+      <!--エラーメッセージには@付けないと、エラー発生するもよう-->
       <% if @user.errors.any? %>
-    <div class="alert">
-    <h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+        <div class="alert">
+          <h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
 
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>s
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>s
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </ul>
+      <p>Title</p>
+      <%= f.text_field :title %>
+      <p>Opinion</p>
+
+      <%= f.text_area :body %>
+      <%= f.submit 'Create Book', class:"btn btn-primary" %>
+      <% end %>
     </div>
-    <% end %>
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <p>Opinion</p>
-
-    <%= f.text_area :body %>
-    <%= f.submit 'Create Book', class:"btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
-
-
 

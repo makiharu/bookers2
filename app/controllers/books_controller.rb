@@ -4,11 +4,12 @@ before_action :authenticate_user!, only: [:index, :show]
 	def index
 	  @books = Book.all
 	  @book = Book.new
-	  @user = current_user    #ビューでそのまま使える
+	  @user = current_user　　#ビューでそのまま使える
+	  
 	end
 
 	def create
-	  @books = Book.all
+	  @books = Book.all.order(id: :DESC)  #きいてなさそう、チェック
 	  @book = Book.new(book_params)
 	  @book.user_id = current_user.id
 	  if @book.save
