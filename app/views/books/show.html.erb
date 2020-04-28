@@ -5,7 +5,7 @@
 
 
 		<!--use info -->
-		<%= render 'layouts/userinfo', user: @user %>
+		<%= render 'layouts/userinfo', user: current_user, book: @book %>
 
 
 
@@ -14,37 +14,27 @@
 			<h2>Book detail</h2>
 			<table class="table">
 				<tr>
-
-					</tr>
-				</thead>
-				<tbody>
-					<!--ユーザーに紐づく本の投稿一覧-->
-					<% @user.books.each do |book| %>
-					<tr>
-						<td>
-						  <a>
-
-							<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %><br>
+					<td>
+					    <a>
+							<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
 							<%= link_to @user.name, user_path(@user) %>
 						</a>
-						</td>
-						<td><%= book.title %></td>
-						<td><%= book.body %></td>
+					</td>
+					<td>
+						<%= @onebook.title %>
+					</td>
+					<td><%= @onebook.body %></td>
+					<td>
 
-						<% if book.user_id == current_user.id %>
-						<td><%= link_to 'Edit', edit_book_path(book), class: "label label-success" %>
-						</td>
-						<td>
-							<%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: '本当に消しますか?'}, class: "label label-danger" %>
-						</td>
-						<% end %>
-
-					</tr>
+					<% if @onebook.user_id == current_user.id %>
+					<td><%= link_to 'Edit', edit_book_path(@onebook), class: "label label-success" %>
+					</td>
+					<td>
+						<%= link_to 'Destroy', book_path(@onebook), method: :delete, data: { confirm: '本当に消しますか?'}, class: "label label-danger" %>
+					</td>
 					<% end %>
-				</tbody>
+				</tr>
 			</table>
 		</div>
-	</div>
-
 
 </div>

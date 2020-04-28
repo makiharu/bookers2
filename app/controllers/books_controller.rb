@@ -4,12 +4,10 @@ before_action :authenticate_user!, only: [:index, :show]
 	def index
 	  @books = Book.all
 	  @book = Book.new
-	  @user = current_user　　#ビューでそのまま使える
-	  
 	end
 
 	def create
-	  @books = Book.all.order(id: :DESC)  #きいてなさそう、チェック
+	  @books = Book.all.order(id: :DESC)  #きいてる？？？チェック
 	  @book = Book.new(book_params)
 	  @book.user_id = current_user.id
 	  if @book.save
@@ -22,7 +20,7 @@ before_action :authenticate_user!, only: [:index, :show]
 
 	def show
 	  @onebook = Book.find(params[:id])  #@bookと違う変数名を用意
-	  @books = Book.all
+	  #@books = Book.all
 	  @book = Book.new
 	  #user定義,本に紐づいたユーザー
 	  @user = User.find(@onebook.user_id)
@@ -31,6 +29,8 @@ before_action :authenticate_user!, only: [:index, :show]
 	def edit
 	  @book = Book.find(params[:id])
 	end
+
+
 
 	def destroy
 		@book = Book.find(params[:id])

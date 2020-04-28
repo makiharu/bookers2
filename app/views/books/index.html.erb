@@ -1,7 +1,8 @@
 <div class="container">
   <div clsss="row">
     <!--use info -->
-    <%= render 'layouts/userinfo', user: @user %>
+    <!--current_userとしないとエラーになった-->
+    <%= render 'layouts/userinfo', user: current_user, book: @book %>
 
 
     <!--book一覧-->

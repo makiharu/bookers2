@@ -4,9 +4,9 @@
         <h2>User info</h2>
         <table class="table">
           <tr>
-            <!--質問箇所、-->
-            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-            <!--ここまでの範囲-->
+
+            <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
           </tr>
           <tr>
             <th>name</th>
@@ -32,15 +32,14 @@
 
       <!--新規投稿ページ-->
       <h1>New book</h1>
-      <%= form_for(@book) do |f| %>
+      <%= form_for(book) do |f| %>
 
-      <!--エラーメッセージには@付けないと、エラー発生するもよう-->
-      <% if @user.errors.any? %>
+      <% if book.errors.any? %>
         <div class="alert">
           <h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
 
           <ul>
-            <% @user.errors.full_messages.each do |message| %>
+            <% book.errors.full_messages.each do |message| %>
               <li><%= message %></li>s
             <% end %>
           </ul>
