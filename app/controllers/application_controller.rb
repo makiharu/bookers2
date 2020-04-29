@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
 		#ログインしていなければ、ログイン画面に飛ばす
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
-	
-	
+
 	def after_sign_in_path_for(resource)
       user_path(resource) # ログイン後に遷移するpathを設定
     end

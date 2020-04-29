@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#top' #サインイン後にルートに飛ばすときは、deviseのヘルパーを使用
   get 'homes/about'
-  get 'users' => "users#index"
+  #get 'users' => "users#index"
 
 
   devise_for :users
