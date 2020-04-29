@@ -1,7 +1,7 @@
 <div class="container">
   <div clsss="row">
     <div class="col-xs-3">
-      <%= render 'layouts/userinfo', user: current_user, book: @book %>
+      <%= render 'layouts/userinfo', user: @user, book: @book %>
     </div>
 
 
@@ -24,7 +24,7 @@
           　 <% @user.books.each do |book| %>
            　<!--userモデルとbookモデルが紐づいてるからできる-->
            　<tr>
-               <td>
+               <td><!--""で書き換えてもだめ-->
                   <%= link_to user_path(@user) do %>
                   <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %>
                   <% end %>

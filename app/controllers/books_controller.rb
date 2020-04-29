@@ -2,15 +2,6 @@ class BooksController < ApplicationController
 	before_action :authenticate_user!
 	before_action :ensure_correct_user,only: [:edit,:update,:destroy]
 
- 	#投稿に紐づいているユーザと現在ログインしているユーザーが異なるかどうかをチェック
-    def ensure_correct_user
-      @book = Book.find(params[:id])
-      if @book.user_id != current_user.id #@消したら、エラー消えた
-      	redirect_to books_path
-      end
-
-    end
-
 	def index
 	  @books = Book.all
 	  @book = Book.new
@@ -32,7 +23,6 @@ class BooksController < ApplicationController
 
 	def show
 	  @onebook = Book.find(params[:id])  #@bookと違う変数名を用意
-	  #@books = Book.all
 	  @book = Book.new
 	  #user定義,本に紐づいたユーザー
 	  @user = User.find(@onebook.user_id)
@@ -66,6 +56,14 @@ class BooksController < ApplicationController
 	  	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)
 	end
+
+	#投稿に紐づいているユーザと現在ログインしているユーザーが異なるかどうかをチェック
+    def ensure_correct_user
+      @book = Book.find(params[:id])
+      if @book.user_id != current_user.id #@消したら、エラー消えた
+      	redirect_to books_path
+      end
+    end
 
 
 end

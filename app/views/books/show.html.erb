@@ -14,10 +14,11 @@
 			<table class="table">
 				<tr>
 					<td>
-					  <%= link_to user_path(@user) do %>
-						<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
-						<%= @user.name %>
-	 				  <% end %>
+
+					  	<%= link_to user_path(@user) do %>
+							<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %><br>
+							<%= @user.name %>
+	 				  	<% end %>
 					</td>
 					<td><!--リンク先-->
 						<%= link_to @onebook.title, book_path(@onebook) %>
@@ -36,4 +37,4 @@
 			</table>
 		</div>
 
-</div>
+</div><a href="/books/26527">test1</a>

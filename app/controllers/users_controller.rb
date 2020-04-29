@@ -2,16 +2,16 @@ class UsersController < ApplicationController
 	# deviseのメソッドで「ログインしていないユーザーをログイン画面に送る」メソッド
 	before_action :authenticate_user!
 
-	#def create
-	 # @book = Book.new(book_params)
-	  ##
-	  #	flash[:notice] ="You have creatad book successfully."
-	  #	redirect_to root_path   #修正
-	  #else
-	  #	render 'books/index'
-	  #end
-	#end
-
+	#before_action :ensure_correct_user,only: [:edit,:update]
+ 	#投稿に紐づいているユーザと現在ログインしているユーザーが異なるかどうかをチェック
+    before_action :correct_user, only: [:edit, :update]
+	#def ensure_correct_user
+     # @book = Book.find(params[:id])
+      #if @book.user_id != current_user.id #@消したら、エラー消えた
+      #	redirect_to books_path
+      #end
+    #end
+    # before_action :correct_user,   only: [:edit, :update]
 
 	def index
 	  @users = User.all
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 	def edit
 	  @user = User.find(params[:id])
 	end
+
 
 
 	def update
@@ -56,5 +57,14 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)
 	end
+
+
+	def correct_user
+      user = User.find(params[:id])
+      if current_user != user
+      redirect_to user_path
+  	end
+    end
+
 
 end
