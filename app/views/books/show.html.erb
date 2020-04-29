@@ -14,10 +14,10 @@
 			<table class="table">
 				<tr>
 					<td>
-					    <a>
-							<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
-							<%= link_to @user.name, user_path(@user) %>
-						</a>
+					  <%= link_to user_path(@user) do %>
+						<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
+						<%= @user.name %>
+	 				  <% end %>
 					</td>
 					<td><!--リンク先-->
 						<%= link_to @onebook.title, book_path(@onebook) %>
@@ -26,10 +26,10 @@
 					<td>
 
 					<% if @onebook.user_id == current_user.id %>
-					<td><%= link_to 'Edit', edit_book_path(@onebook), class: "label label-success" %>
+					<td><%= link_to 'Edit', edit_book_path(@onebook), class:"btn btn-success btn-sm hover" %>
 					</td>
 					<td>
-						<%= link_to 'Destroy', book_path(@onebook), method: :delete, data: { confirm: '本当に消しますか?'}, class: "label label-danger" %>
+						<%= link_to 'Destroy', book_path(@onebook), method: :delete, data: { confirm: '本当に消しますか?'}, class:"btn btn-danger btn-sm hover" %>
 					</td>
 					<% end %>
 				</tr>

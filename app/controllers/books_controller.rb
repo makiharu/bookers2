@@ -1,5 +1,15 @@
 class BooksController < ApplicationController
 	before_action :authenticate_user!, only: [:index, :show]
+	before_action :ensure_correct_user,{only: [:edit,:update,:destroy]}
+
+ 	#投稿に紐づいているユーザと現在ログインしているユーザーが異なるかどうかをチェック
+    def ensure_correct_user
+      @book = Book.find(params[:id])
+      if @book.user_id != current_user.id
+      	redirect_to books_path
+      end
+
+    end
 
 	def index
 	  @books = Book.all
@@ -40,10 +50,11 @@ class BooksController < ApplicationController
 
 	private
 	  def book_params
-	  	params.require(:book).permit(:title, :body)
+	  	params.require(:book).permit(:title, :body) #投稿内容のみ
 	  end
 	  	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)
 	end
+
 
 end
