@@ -20,8 +20,8 @@
 							<%= link_to @user.name, user_path(@user) %>
 						</a>
 					</td>
-					<td>
-						<%= @onebook.title %>
+					<td><!--リンク先-->
+						<%= link_to @onebook.title, book_path(@onebook) %>
 					</td>
 					<td><%= @onebook.body %></td>
 					<td>

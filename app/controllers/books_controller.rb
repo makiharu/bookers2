@@ -4,6 +4,7 @@ before_action :authenticate_user!, only: [:index, :show]
 	def index
 	  @books = Book.all
 	  @book = Book.new
+	  @user = current_user  #一旦、削除のち追記
 	end
 
 	def create

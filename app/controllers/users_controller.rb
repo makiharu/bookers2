@@ -15,16 +15,15 @@ class UsersController < ApplicationController
 
 	def index
 	  @users = User.all
-	  @user = current_user #確認
+	  @user = current_user #確認、一旦削除してみる
 	  @book = Book.new
-
 	end
 
 	def show
 	  #@users = User.all
 	  @user = User.find(params[:id])
 	  @book = Book.new
-	  @user = current_user
+	  #@user = current_user ここがあると、うまく行く時とエラーの原因になる場合がある
 	  #ログイン時のみ
 	  #flash[:notice] ="Welcome! You have signed up successfully."
 	end
