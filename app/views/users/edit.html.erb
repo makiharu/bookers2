@@ -1,33 +1,40 @@
   <div class="container">
-	<h1>User info</h1>
+	<h2>User info</h2>
 
-	<%= form_for(@user) do |f| %>
-	<!--エラーメッセ挿入、パーシャル-->
-	<% if @user.errors.any? %>
-	<div class="alert">
-		<h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+	<div class="form-group" role="form">
 
-		<ul>
-			<% user.errors.full_messages.each do |message| %>
-			<li><%= message %></li>s
+		<%= form_for(@user) do |f| %>
+		<!--エラーメッセ挿入、パーシャル-->
+			<% if @user.errors.any? %>
+			<div class="alert">
+				<h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+
+				<ul>
+					<% user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>s
+					<% end %>
+				</ul>
+			</div>
 			<% end %>
-		</ul>
-	</div>
-	<% end %>
 
-		<p>Name</p>
-		<%= f.text_field :name %>
+			<div class="field">
+				<label>Name</label>
+				<%= f.text_field :name %>
+			</div>
 
-		<p>Image</p>
-		<p><%= f.attachment_field :profile_image %></p>
+			<div class="field">
+				<label>Image</label>
+				<%= f.attachment_field :profile_image %>
+			</div>
 
-		<p>Introduction</p>
-		<%= f.text_area :introduction %>
+			<div class="field">
+				<label>Introduction</label>
+				<%= f.text_area :introduction %>
+			</div>
 
-		<p><%= f.submit 'Update User' %></p>
+			<div class="actions">
+				<input type="submit" name="commit" value="Update User" data-disable-with="Update User" >
+			</div>
 		<% end %>
-
+	</div>
 </div>
-
-
-
