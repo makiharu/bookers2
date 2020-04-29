@@ -7,10 +7,10 @@
 		<!--エラーメッセ挿入、パーシャル-->
 			<% if @user.errors.any? %>
 			<div class="alert">
-				<h2><%= pluralize(user.errors.count, "error")%>prohibited this obj from being saved:</h2>
+				<h2><%= pluralize(@user.errors.count, "error")%>prohibited this obj from being saved:</h2>
 
 				<ul>
-					<% user.errors.full_messages.each do |message| %>
+					<% @user.errors.full_messages.each do |message| %>
 					<li><%= message %></li>s
 					<% end %>
 				</ul>

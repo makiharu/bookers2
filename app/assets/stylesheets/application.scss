@@ -29,7 +29,7 @@ header .navbar-left span {
 
 
 .btn-wrapper a{
-	color: #666666;
+    color: #666666;
 }
 
 .nav>li>a {
@@ -40,10 +40,14 @@ header .navbar-left span {
 
 
 .actions {
-	margin-top: 12px;
+    margin-top: 12px;
 }
 
 .flash {
-	color: green;
+    color: green;
     margin: 0 0 10px 10px;
+}
+
+.alert {
+    color: red;
 }
