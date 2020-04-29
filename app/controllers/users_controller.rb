@@ -15,15 +15,15 @@ class UsersController < ApplicationController
 
 	def index
 	  @users = User.all
-	  @user = current_user #確認、一旦削除してみる
+	  @user = current_user #エラー要因
 	  @book = Book.new
 	end
 
+
+
 	def show
-	  #@users = User.all
 	  @user = User.find(params[:id])
 	  @book = Book.new
-	  #@user = current_user ここがあると、うまく行く時とエラーの原因になる場合がある
 	  #ログイン時のみ
 	  #flash[:notice] ="Welcome! You have signed up successfully."
 	end
@@ -51,9 +51,9 @@ class UsersController < ApplicationController
 
 
 	private
-	#def book_params
-	#	params.require(:book).permit(:title, :body, :user_id)   #追加した
-	#end
+	def book_params
+		params.require(:book).permit(:title, :body, :user_id)   #追加した
+	end
 
 	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)

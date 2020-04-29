@@ -48,16 +48,18 @@
 
               <div class="field row">
                 <label>Title</label>
-                <input class="col-xs-12" type="text" name="title" class="form-control">
+                <%= f.text_field :title %>
               </div>
 
               <div class="field row">
                 <label>Opinion</label>
-                <textarea class="col-xs-12" name="book_body"></textarea>
+                <%= f.text_area :body %>
               </div>
 
               <div class="actions row">
-                    <input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12">
+                <%= f.submit 'Create Book' %>
+                 <input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12">
+              </div>
               </div>
 
           <% end %>

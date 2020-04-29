@@ -1,14 +1,14 @@
 class BooksController < ApplicationController
-before_action :authenticate_user!, only: [:index, :show]
+	before_action :authenticate_user!, only: [:index, :show]
 
 	def index
 	  @books = Book.all
 	  @book = Book.new
-	  @user = current_user  #一旦、削除のち追記
+	  #@user = current_user #エラー要員
 	end
 
 	def create
-	  @books = Book.all.order(id: :DESC)  #きいてる？？？チェック
+	  @books = Book.all.order(id: :DESC)  #チェック
 	  @book = Book.new(book_params)
 	  @book.user_id = current_user.id
 	  if @book.save
@@ -40,7 +40,7 @@ before_action :authenticate_user!, only: [:index, :show]
 
 	private
 	  def book_params
-	  	params.require(:book).permit(:title, :body, :user_id)
+	  	params.require(:book).permit(:title, :body)
 	  end
 	  	def user_params
 		params.require(:user).permit(:name, :introduction, :profile_image)

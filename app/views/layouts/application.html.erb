@@ -33,7 +33,7 @@
           <ul class="nav navbar-nav navbar-right small">
             <% if user_signed_in? %>
               <li>
-                <%= link_to " Home", user_path(@user), class: "glyphicon glyphicon-home home", "aria-hidden": true %>
+                <%= link_to " Home", user_path(current_user.id), class: "glyphicon glyphicon-home home", "aria-hidden": true %>
               </li>
               <li>
                 <%= link_to ' Users', users_path, class: "glyphicon glyphicon-user users", "aria-hidden": true %>
