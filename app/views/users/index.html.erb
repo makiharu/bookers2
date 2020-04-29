@@ -1,9 +1,11 @@
 <div class="container">
 
   <div clsss="row">
-　　<!--user info-->
-  　<%= render 'layouts/userinfo', user: current_user, book: @book %>
 
+    <div class="col-xs-3">
+      <!--user info-->
+  　　 <%= render 'layouts/userinfo', user: current_user, book: @book %>
+    </div>
 
 
     <!-- user一覧-->
@@ -26,8 +28,9 @@
               </tr>
           <% end %>
           </tbody>
-      </table>
+        </table>
     </div>
+
   </div>
 
 </div>
