@@ -2,16 +2,9 @@ class UsersController < ApplicationController
 	# deviseのメソッドで「ログインしていないユーザーをログイン画面に送る」メソッド
 	before_action :authenticate_user!
 
-	#before_action :ensure_correct_user,only: [:edit,:update]
  	#投稿に紐づいているユーザと現在ログインしているユーザーが異なるかどうかをチェック
     before_action :correct_user, only: [:edit, :update]
 	#def ensure_correct_user
-     # @book = Book.find(params[:id])
-      #if @book.user_id != current_user.id #@消したら、エラー消えた
-      #	redirect_to books_path
-      #end
-    #end
-    # before_action :correct_user,   only: [:edit, :update]
 
 	def index
 	  @users = User.all
