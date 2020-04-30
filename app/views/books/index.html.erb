@@ -1,14 +1,15 @@
-<div class="container">
+<div class="body">
+  <div class="container">
 
-  <!--エラーメッセ-->
-  <%= render 'layouts/error_messages', model: @book %>
+    <!--エラーメッセ-->
+    <%= render 'layouts/error_messages', model: @book %>
 
-    <div clsss="row">
+    <div class="row">
       <!--use info -->
       <!--current_userとしないとエラーになった-->
       <div class="col-xs-3">
         <%= render 'layouts/userinfo', user: current_user, book: @book %>
-     </div>
+      </div>
 
       <!--book一覧-->
       <div class="col-xs-9">
@@ -21,7 +22,7 @@
               <th>Title</th>
               <th>Opinion</th>
               <th colspan="3"></th>
-           </tr>
+            </tr>
           </thead>
 
           <tbody>
@@ -30,7 +31,7 @@
             <tr><!--本の投稿をしたユーザーの画像-->
               <td><%= link_to user_path(book.user.id) do %>
                 <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
-                  <% end %>
+                <% end %>
               </td>
 
               <th><%= link_to book.title, book_path(book) %></th>
@@ -44,4 +45,4 @@
 
     </div>
   </div>
-
+</div>

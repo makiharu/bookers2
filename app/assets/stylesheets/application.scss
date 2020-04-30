@@ -17,9 +17,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
 body {
-    padding-top: 60px;
+    padding-top: 40px;
 }
+
+
+
+.col-xs-3 {
+ 
+    padding-top: 16px;
+}
+
+
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+    color: white;
+}
+
+
 
 header .navbar-left span {
     font-size: 20px;
@@ -33,7 +52,7 @@ header .navbar-left span {
 }
 
 .nav>li>a {
-    position: relative;
+
     display: block;
     padding: 10px 15px;
 }
