@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
  	#投稿に紐づいているユーザと現在ログインしているユーザーが異なるかどうかをチェック
     before_action :correct_user, only: [:edit, :update]
-	#def ensure_correct_user
 
 	def index
 	  @users = User.all
@@ -55,8 +54,8 @@ class UsersController < ApplicationController
 	def correct_user
       user = User.find(params[:id])
       if current_user != user
-      redirect_to user_path
-  	end
+      redirect_to user_path(current_user) #追記
+	  end
     end
 
 

@@ -17,10 +17,9 @@
 
       <!--アイコンボタン-->
       <div class="">
-
-        <%= link_to  edit_user_path(user), class:'col-xs-12 btn btn-default' do %>
-          <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-        <% end %>
+          <%= link_to  edit_user_path(user), class:'col-xs-12 btn btn-default' do %>
+              <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+          <% end %>
       </div>
 
 
@@ -29,9 +28,6 @@
       <h2>New book</h2>
       <div class="form-group" role="form">
           <%= form_for(book) do |f| %>
-
-
-
 
               <div class="field row">
                 <label>Title</label>
