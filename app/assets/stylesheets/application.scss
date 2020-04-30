@@ -16,3 +16,57 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+body {
+    padding-top: 40px;
+}
+
+
+
+.col-xs-3 {
+ 
+    padding-top: 16px;
+}
+
+
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+    color: white;
+}
+
+
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+    color: white;
+}
+
+
+.btn-wrapper a{
+    color: #666666;
+}
+
+.nav>li>a {
+
+    display: block;
+    padding: 10px 15px;
+}
+
+
+.actions {
+    margin-top: 12px;
+}
+
+.flash {
+    color: green;
+    margin: 0 0 10px 10px;
+}
+
+.alert {
+    color: red;
+}
